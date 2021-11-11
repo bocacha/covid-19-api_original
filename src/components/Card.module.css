@@ -1,0 +1,84 @@
+.Container{
+    display:flex;
+    flex-direction: column;
+    width:280px;
+    color:white;
+    background: rgba(242, 241, 245, 0.1); 
+    /* opacity: 0.5; */
+    box-shadow: 5px 5px 5px rgb(46, 45, 45);
+    border: 1px solid rgb(156, 155, 155);
+    border-radius: 15px;
+    /* margin-top: 50px; */
+    margin:30px;
+   
+}
+    
+.Container:hover{
+    background: rgba(242, 241, 245, 0.5);  
+    color:darkslategray;
+}
+.head{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 10px; */
+    border-bottom: 1px solid rgb(156, 155, 155);
+}
+.footer{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: fit-content;
+}
+.btn{
+    align-self: flex-end;
+    width: 30px;
+    /* background-color:rgba(242, 241, 245, 0.1); */
+    background-color:rgba(247, 143, 8, 0.521);
+    color:white;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.linea{
+    border-top: 1px solid grey;
+}
+
+.lblInfo{
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+   
+}
+a{
+    color:white;
+    text-decoration: none;
+
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 6px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tooltip .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+.tooltip:hover .tiptext {
+    visibility: visible;
+}
