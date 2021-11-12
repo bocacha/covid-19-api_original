@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import style from './App.module.css';
 import Card from './components/Card';
+import Footer from './components/Footer';
 
 //eslint-disable-next-line
 import Data,{Africa,America,Asia,Europa,Oceania} from './data';
@@ -12,27 +13,20 @@ import Data,{Africa,America,Asia,Europa,Oceania} from './data';
 
 export default function App() {
   //eslint-disable-next-line
-  const [input,setInput]=useState({
-    country:" ",
-  });
+ 
 
   const[country,setCountry]=useState([]);
   var pais="";
-  var anterior="anterior";
+  
   //Procedure for Card closing
   function onClose(name) {
     setCountry(oldCountry => oldCountry.filter(c => c.country !== name));
   }
   //Function to hit the API
   function handleDispatch(e){
-    e.preventDefault();
-    if(pais === anterior){
-      alert("Please, select a different country");
-      return;
-    }
-    anterior=document.getElementById("paises").value;
+    e.preventDefault(); 
     pais=document.getElementById("paises").value;
-    if(input.country){
+    if(pais){
       const options = {
         method: 'GET',
         url: 'https://covid-193.p.rapidapi.com/statistics',
@@ -49,6 +43,7 @@ export default function App() {
           country:response.data.response[0].country,
           population:(response.data.response[0].population).toLocaleString(),
           cases:(response.data.response[0].cases.total).toLocaleString(),
+          day:response.data.response[0].day,
           time:(response.data.response[0].time).slice(11,19),
           deaths:(response.data.response[0].deaths.total).toLocaleString(),
         }
@@ -95,7 +90,7 @@ export default function App() {
   
   return (
     <>
-    <hr/>
+    {/* <hr/> */}
     <div className={style.form}>
       <div>
         <select id="continents"name="continents" onClick={handleSelect}>
@@ -130,6 +125,7 @@ export default function App() {
           pop={c.population}
           cases={c.cases}
           time={c.time}
+          day={c.day}
           deaths={c.deaths}
           // onClose={onClose} 
           onClose={() => onClose(c.country)}
@@ -137,7 +133,8 @@ export default function App() {
           </Fragment>
         ))}
       </div>   
-    </div>    
+    </div>  
+    <Footer/>  
     </>
   );
   

@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Card.module.css';
 
 
-export default function Card({name,cont,pop,cases,time,deaths,onClose}) {
+export default function Card({name,cont,pop,cases,time,day,deaths,onClose}) {
   
   return (
     <div className={style.Container}>
@@ -33,6 +33,7 @@ export default function Card({name,cont,pop,cases,time,deaths,onClose}) {
       
       <div className={style.footer}>
           <h6>Updated at:</h6>
+          <h6>{day}</h6>
           <h6>{time}</h6>
       </div>
     
