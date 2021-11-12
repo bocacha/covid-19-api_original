@@ -1,10 +1,11 @@
 import { Fragment, useState} from 'react';
 import axios from 'axios';
-import {Routes,Route} from 'react-router-dom';
+
+
 
 import style from './App.module.css';
 import Card from './components/Card';
-import Country from '../src/components/Country';
+
 //eslint-disable-next-line
 import Data,{Africa,America,Asia,Europa,Oceania} from './data';
 
@@ -17,6 +18,7 @@ export default function App() {
 
   const[country,setCountry]=useState([]);
   var pais="";
+  var anterior="anterior";
   //Procedure for Card closing
   function onClose(name) {
     setCountry(oldCountry => oldCountry.filter(c => c.country !== name));
@@ -24,6 +26,11 @@ export default function App() {
   //Function to hit the API
   function handleDispatch(e){
     e.preventDefault();
+    if(pais === anterior){
+      alert("Please, select a different country");
+      return;
+    }
+    anterior=document.getElementById("paises").value;
     pais=document.getElementById("paises").value;
     if(input.country){
       const options = {
@@ -86,18 +93,9 @@ export default function App() {
     }
   } 
   
-  function onFilter(name) {
-    let myCountry = country.filter(c => c.country === name);
-    if(country.length > 0) {
-        return myCountry[0];
-    } else {
-        return null;
-    }
-  }
-
   return (
     <>
-    
+    <hr/>
     <div className={style.form}>
       <div>
         <select id="continents"name="continents" onClick={handleSelect}>
@@ -139,16 +137,8 @@ export default function App() {
           </Fragment>
         ))}
       </div>   
-    </div>
-    <Routes>
-      <Route
-        // path='/country/:name' 
-        path='/country/:name'  render={({match}) => <Country country={ onFilter(match.params.name)}/>}
-        // path='/country/:name' element={<Country />} 
-      />
-    </Routes>
+    </div>    
     </>
   );
   
 }
-
