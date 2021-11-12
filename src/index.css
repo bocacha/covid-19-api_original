@@ -5,11 +5,12 @@ body {
   font-family: 'Carrois Gothic SC', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(57, 63, 63);
-  /* background-image:url('../src/images/background.png');
+  /* background-color: rgb(57, 63, 63); */
+  background-color: rgb(25, 212, 212);
+  background-image:url('../src/images/backgroundMain.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: darken; */
+  background-blend-mode: darken; 
 }
 
 code {

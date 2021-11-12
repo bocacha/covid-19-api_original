@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import style from './Card.module.css';
 
-export default function Card({name,cont,pop,cases,time,onClose}) {
+export default function Card({name,cont,pop,cases,time,deaths,onClose}) {
   // acá va tu código
   return (
     <div className={style.Container}>
@@ -11,9 +11,6 @@ export default function Card({name,cont,pop,cases,time,onClose}) {
       
       <div className={style.head}>
         <Link to={`/country/${name}`} >
-        {/* <div class="tooltip top">
-          <span class="tiptext">CLICK ME for Details!</span>
-        </div> */}
           <h3 className="card-title">{name}</h3>
         </Link>
         <p className="card-title">{cont}</p>
@@ -28,7 +25,13 @@ export default function Card({name,cont,pop,cases,time,onClose}) {
         <div>
           <p>Cases</p>
           <p>{cases}</p>
-        </div>        
+        </div>
+        <div>
+          <p>Deaths</p>
+          <p>{deaths}</p>
+        </div>
+
+
       </div>
       
       <div className={style.footer}>
