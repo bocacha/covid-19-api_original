@@ -1,20 +1,29 @@
-.home{
-    background-color: white;
-    padding: 20px;
-}
-.data{
+.title{    
+    color:white;
+    text-align: center;
+    /* margin-bottom: 2rem; */
     display: flex;
+    height:80px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
+    background-image: url('../images/background.png');
+    filter: grayscale(100%);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.item{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    width:600px;
-    align-items: center;
-    margin-top: 5px;
-    background-color: white;
-    color:black;
+.general{
+    background-color: #fff;
+    /* padding: 2rem;
+    border-radius: 0.5rem; */
+    
 }
+h5{
+    color:darkslategray;
+}
+
+
+.grid{
+    background-color: burlywood;
+    text-align: center;
+    /* size: 20px; */
+}
+

@@ -14,11 +14,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: rgb(57, 63, 63); */
-  background-color: rgba(17, 39, 17, 0.596);
-  background-image:url('../src/images/backgroundMain.png');
+  background-color:darkslategray;
+  /* background-image:url('../src/images/backgroundMain.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: darken; 
+  background-blend-mode: darken;  */
 }
 
 code {

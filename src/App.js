@@ -1,12 +1,9 @@
 import { Fragment, useState} from 'react';
 import axios from 'axios';
-
-
-
+import {Link} from 'react-router-dom';
+import Card from './components/Card'; 
+// import Footer from './components/Footer';
 import style from './App.module.css';
-import Card from './components/Card';
-import Footer from './components/Footer';
-
 //eslint-disable-next-line
 import Data,{Africa,America,Asia,Europa,Oceania} from './data';
 
@@ -92,6 +89,7 @@ export default function App() {
     <>
     {/* <hr/> */}
     <div className={style.form}>
+      
       <div>
         <select id="continents"name="continents" onClick={handleSelect}>
           <option value="">Continent:</option>
@@ -112,6 +110,15 @@ export default function App() {
       <button onClick={handleDispatch}>Show Me</button>
       
     </div>
+    <div className={style.header}>
+        <p>Instructions:</p>
+        <p>1) Pick a Continent</p>
+        <p>2) Pick a Country</p>
+        <p>3) Hit Show me!</p>
+        <Link to="/">
+        <div>HOME</div>
+        </Link>
+      </div>
     <>
     <hr/>
     </>
@@ -134,7 +141,7 @@ export default function App() {
         ))}
       </div>   
     </div>  
-    <Footer/>  
+    {/* <Footer/>   */}
     </>
   );
   

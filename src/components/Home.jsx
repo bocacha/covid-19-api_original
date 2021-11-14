@@ -1,17 +1,16 @@
 import {Link} from 'react-router-dom';
 import axios from "axios";
 import {useState,useEffect} from 'react';
-//import style from './Home.module.css';
-import {DataGrid} from '@mui/x-data-grid'
-// import Card from './Card'
+import style from './Home.module.css';
+import {DataGrid} from '@mui/x-data-grid';
+
 
 const columns = [
-    // {field:'id', headerName:'ID',width:50},
-    {field:'continent', headerName:'Continent',width:100},
-    {field:'country', headerName:'Country',width:150},
-    {field:'population', headerName:'Population',width:120,type:'number'},
-    {field:'cases', headerName:'Cases',width:100,type:'number'},
-    {field: 'deaths', headerName: 'Deaths',width:100,type:'number'},
+    {field:'continent', headerName:'Continent',width:200},
+    {field:'country', headerName:'Country',width:300},
+    {field:'population', headerName:'Population',width:240,type:'number'},
+    {field:'cases', headerName:'Cases',width:200,type:'number'},
+    {field: 'deaths', headerName: 'Deaths',width:200,type:'number'},
 ];
 
 
@@ -62,67 +61,24 @@ export default function Home() {
     });
 
     return (
-        <>
-        <Link to="/">App</Link>
-        <div style={{margin:100,height:700,width:'40%'}}>
-            <DataGrid
-                getRowId={(row) => row.id}                
-                rows={idTableData}
-                columns={columns}
-                rowsPerPageOptions={[10]}
-                pageSize={10}
-                autoPageSize={true}
-                disableColumnFilter={true}
-                columnHeader--alignCenter
-                // cell--textCenter
-                // onRowClick={(row) => {
-            />
+        <div className={style.general}>
+        <div className={style.container}>
+            <div className={style.title}>
+                <h2>COVID-19 Statictics from all over the World</h2>
+                <Link to="/details"><h5>Click to see further details</h5></Link>
+            </div>
+            
+            <div style={{margin:100,height:700}}>
+                <DataGrid className={style.grid}                               
+                    rows={idTableData}
+                    columns={columns}
+                    rowsPerPageOptions={[10]}
+                    pageSize={10}
+                    autoPageSize={true}
+                    onRowClick={(row) => console.log(row)}
+                />
+            </div>
+        </div>        
         </div>
-        </>
     )
-
-//   function retrieveData() {
-//     const options = {
-//         method: 'GET',
-//         url: 'https://covid-193.p.rapidapi.com/statistics',
-//         headers: {
-//           'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-//           'x-rapidapi-key': 'ce82a5b3d1msh7b183d31d72b664p1767e0jsn221840a2d9ae'
-//         }
-//     };
-//     axios.request(options).then(function (response) {
-//         console.log(response.data);
-//         setData(response.data.response);
-
-//     }).catch(function (error) {
-//         console.error(error);
-//     });
-//     }
-
-
-
-//   return (
-//     <div className={style.home}>
-//         <h1>Covid-19 API</h1>
-//         <Link to="/">App</Link>
-//         <button onClick={retrieveData}>Retrieve Data</button>
-//         <div className={style.data}>
-//             {data.filter(item => (item.continent === "Africa")).map(item => (
-                
-//                 <div className={style.item} key={item.country}>
-//                     <h6>{item.continent}</h6>
-//                     <h6>{item.country}</h6>
-//                     <h6>{item.population}</h6>
-//                     <h6>{item.cases.total}</h6>
-//                     <h6>{item.deaths.total}</h6>
-//                 </div>
-//             ))}
-           
-//         </div>
-//     </div>    
-//     );
-
-
-
-
 }

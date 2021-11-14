@@ -7,11 +7,16 @@
   }
 }
 
-
+.body{
+    background-color:darkslategray;
+    height:1000px;
+}
 .container{
     display: flex;
     margin:15px;
     justify-content: center;
+    background-color:darkslategray;
+    
 }
 .App{
     display: flex;
@@ -44,6 +49,7 @@
     background-image: url('../src/images/background.png');
     background-repeat: no-repeat;
     background-size: cover;
+    filter:grayscale(100%);
 }
 
 select{
@@ -67,6 +73,11 @@ select:hover{
 }
 button:hover{
     background-color: rgb(107, 209, 178);
+}
+.header{
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
 }
 /* hr{
     border: forestgreen;

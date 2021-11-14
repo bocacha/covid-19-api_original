@@ -10,7 +10,7 @@
             <p>2) Pick a Country</p>
             <p>3) Hit Show me!</p>
         </div> 
-        <Link to="/home">
+        <Link to="/">
         <div>HOME</div>
         </Link>
         </>
