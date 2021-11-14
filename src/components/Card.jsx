@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Card.module.css';
 
 
-export default function Card({name,cont,pop,cases,time,day,deaths,onClose}) {
+export default function Card({name,cont,pop,cases,recovered,active,critical,test,time,day,deaths,onClose}) {
   
   return (
     <div className={style.Container}>
@@ -25,9 +25,25 @@ export default function Card({name,cont,pop,cases,time,day,deaths,onClose}) {
           <p>{cases}</p>
         </div>
         <div>
-          <p>Deaths</p>
-          <p>{deaths}</p>
+          <p>Recovered</p>
+          <p>{recovered}</p>
         </div>
+
+      </div>
+      <div className={style.middle}>
+        <div>
+          <p>Active</p>
+          <p>{active}</p>
+        </div>
+        <div>
+          <p>Critical</p>
+          <p>{critical}</p>     
+        </div>
+        <div>          
+          <p>Deaths</p>
+          <p>{deaths}</p>  
+        </div>
+        
 
       </div>
       

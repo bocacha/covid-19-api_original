@@ -1,10 +1,3 @@
-@media (max-width: 700px) {
-  .body {
-    background-repeat:repeat;
-  }
-}
-
-
 
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap');
 
@@ -13,12 +6,7 @@ body {
   font-family: 'Carrois Gothic SC', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(57, 63, 63); */
   background-color:darkslategray;
-  /* background-image:url('../src/images/backgroundMain.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: darken;  */
 }
 
 code {

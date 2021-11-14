@@ -4,11 +4,11 @@ import {useState,useEffect} from 'react';
 import style from './Home.module.css';
 import {DataGrid} from '@mui/x-data-grid';
 
-
+//Data Grid configuration
 const columns = [
-    {field:'continent', headerName:'Continent',width:200},
+    {field:'continent', headerName:'Continent',width:250},
     {field:'country', headerName:'Country',width:300},
-    {field:'population', headerName:'Population',width:240,type:'number'},
+    {field:'population', headerName:'Population',width:200,type:'number'},
     {field:'cases', headerName:'Cases',width:200,type:'number'},
     {field: 'deaths', headerName: 'Deaths',width:200,type:'number'},
 ];
@@ -19,7 +19,7 @@ export default function Home() {
     const [tableData, setTableData] = useState([]);
     const idTableData=[];
 
-   
+    //Api call related to the data grid
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -29,14 +29,13 @@ export default function Home() {
               'x-rapidapi-key': 'ce82a5b3d1msh7b183d31d72b664p1767e0jsn221840a2d9ae'
             }
           };
-        //   console.log("Hice un get!!")
           axios.request(options).then(function (response) {
               setTableData(response.data.response);
           }).catch(function (error) {
               console.error(error);
           });   
     },[]);
-
+    //Adding index to the data grid
     for(let i=0;i<tableData.length;i++){
         const myData={
             id:i,
@@ -46,16 +45,14 @@ export default function Home() {
             cases:tableData[i].cases.total,
             deaths:tableData[i].deaths.total
         }
-        // if(tableData[i].continent !=="" && tableData[i].continent !== tableData[i].country && tableData[i].cases>0){
-        //     idTableData.push(myData);
-        // }
+        //Avoiding null cases
         if(tableData[i].continent !==null && tableData[i].population !==null){
             
             idTableData.push(myData);
         }
          
     }
-
+    //Ordering the data grid by Continents
     idTableData.sort( function( a, b ) {
         return a.continent < b.continent ? -1 : a.continent > b.continent ? 1 : 0;
     });
@@ -68,7 +65,7 @@ export default function Home() {
                 <Link to="/details"><h5>Click to see further details</h5></Link>
             </div>
             
-            <div style={{margin:100,height:700}}>
+            <div style={{height:650,margin: 50}}>
                 <DataGrid className={style.grid}                               
                     rows={idTableData}
                     columns={columns}

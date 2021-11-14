@@ -1,16 +1,13 @@
 .Container{
     display:flex;
     flex-direction: column;
-    width:280px;
+    width:350px;
     color:white;
     background: rgba(242, 241, 245, 0.1); 
-    /* opacity: 0.5; */
     box-shadow: 5px 5px 5px rgba(96, 173, 122, 0.089);
     border: 1px solid rgb(156, 155, 155);
     border-radius: 15px;
-    /* margin-top: 50px; */
-    margin:30px;
-   
+    margin:30px;   
 }
     
 .Container:hover{
@@ -21,8 +18,12 @@
     display:flex;
     justify-content: space-evenly;
     align-items: center;
-    /* padding: 10px; */
     border-bottom: 1px solid rgb(156, 155, 155);
+}
+.middle{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .footer{
     display:flex;
@@ -34,7 +35,6 @@
 .btn{
     align-self: flex-end;
     width: 30px;
-    /* background-color:rgba(242, 241, 245, 0.1); */
     background-color:rgba(247, 143, 8, 0.521);
     color:white;
     border-radius: 5px;
@@ -54,7 +54,6 @@
 a{
     color:white;
     text-decoration: none;
-
 }
 
 h3{

@@ -2,16 +2,13 @@ import { Fragment, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Card from './components/Card'; 
-// import Footer from './components/Footer';
 import style from './App.module.css';
 //eslint-disable-next-line
 import Data,{Africa,America,Asia,Europa,Oceania} from './data';
 
 
 export default function App() {
-  //eslint-disable-next-line
- 
-
+  
   const[country,setCountry]=useState([]);
   var pais="";
   
@@ -19,7 +16,7 @@ export default function App() {
   function onClose(name) {
     setCountry(oldCountry => oldCountry.filter(c => c.country !== name));
   }
-  //Function to hit the API
+  //Function to hit the API for single Country results
   function handleDispatch(e){
     e.preventDefault(); 
     pais=document.getElementById("paises").value;
@@ -40,11 +37,16 @@ export default function App() {
           country:response.data.response[0].country,
           population:(response.data.response[0].population).toLocaleString(),
           cases:(response.data.response[0].cases.total).toLocaleString(),
+          recovered:(response.data.response[0].cases.recovered).toLocaleString(),
+          active:(response.data.response[0].cases.active).toLocaleString(),
+          critical:(response.data.response[0].cases.critical).toLocaleString(),
+          test:(response.data.response[0].tests.total).toLocaleString(),
           day:response.data.response[0].day,
           time:(response.data.response[0].time).slice(11,19),
           deaths:(response.data.response[0].deaths.total).toLocaleString(),
         }
-        setCountry(oldCountry => [...oldCountry, myCountry]); // actualiza el estado
+        setCountry(oldCountry => [...oldCountry, myCountry]); 
+
       }).catch(function (error) {
         alert("No Country found!")
       });
@@ -53,7 +55,7 @@ export default function App() {
     }
   }
   
-  //Continents load:
+  //Countries load depending on continent selection
   function handleSelect(e){
     e.preventDefault();
     var continent=e.target.value;
@@ -87,7 +89,6 @@ export default function App() {
   
   return (
     <>
-    {/* <hr/> */}
     <div className={style.form}>
       
       <div>
@@ -116,7 +117,7 @@ export default function App() {
         <p>2) Pick a Country</p>
         <p>3) Hit Show me!</p>
         <Link to="/">
-        <div>HOME</div>
+        <div>BACK TO LIST</div>
         </Link>
       </div>
     <>
@@ -131,17 +132,19 @@ export default function App() {
           cont={c.continent} 
           pop={c.population}
           cases={c.cases}
+          recovered={c.recovered}
+          active={c.active} 
+          critical={c.critical}
+          test={c.test}
           time={c.time}
           day={c.day}
           deaths={c.deaths}
-          // onClose={onClose} 
           onClose={() => onClose(c.country)}
           />
           </Fragment>
         ))}
       </div>   
     </div>  
-    {/* <Footer/>   */}
     </>
   );
   
